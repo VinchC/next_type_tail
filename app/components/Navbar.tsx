@@ -12,8 +12,8 @@ const Navbar = async () => {
       <nav className="flex justify-between items-center">
         <Link href="/">
           <Image
-            src="/typescript.webp"
-            alt="Nextjs logo"
+            src="/logo.avif"
+            alt="J'aime pas les maths logo"
             width={64}
             height={64}
           />
@@ -23,7 +23,7 @@ const Navbar = async () => {
           {session && session?.user ? (
             <>
               <Link href="/products/create">
-                <span>Create</span>
+                <span>Créer</span>
               </Link>
               <form
                 action={async () => {
@@ -31,7 +31,7 @@ const Navbar = async () => {
                   await signOut();
                 }}
               >
-                <button type="submit">Sign out</button>
+                <button type="submit">Déconnexion</button>
               </form>
               <Link href={`/user/${session?.id}`}>
                 <span>{session?.user?.name}</span>
@@ -44,7 +44,7 @@ const Navbar = async () => {
                 await signIn("github");
               }}
             >
-              <button type="submit">Sign in</button>
+              <button type="submit">Se connecter</button>
             </form>
           )}
         </div>
