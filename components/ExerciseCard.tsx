@@ -1,10 +1,13 @@
 import { ExerciseType } from "@/app/types";
 import Image from "next/image";
+import { formatDate } from "@/lib/utils";
 
 export default function ExerciseCard({ exercise }: { exercise: ExerciseType }) {
   return (
     <div>
-      <h1>{exercise.author}</h1>
+      <h2>{exercise.title}</h2>
+      <p>{exercise.author}</p>
+      <p>{formatDate(exercise._createdAt)}</p>
       <p>{exercise.views}</p>
       <Image
         src={exercise.picture}
@@ -14,7 +17,6 @@ export default function ExerciseCard({ exercise }: { exercise: ExerciseType }) {
       />
       <p>{exercise.description}</p>
       <p>{exercise.category}</p>
-      <p>{exercise.title}</p>
     </div>
   );
 }

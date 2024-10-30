@@ -4,7 +4,7 @@ import { ExerciseType } from "./types";
 
 export const exercises: ExerciseType[] = [
   {
-    createdAt: "yesterday",
+    _createdAt: new Date(),
     views: 0,
     author: "Pythagore",
     _id: 1,
@@ -15,7 +15,7 @@ export const exercises: ExerciseType[] = [
     title: "Théorème de Pythagore",
   },
   {
-    createdAt: "yesterday",
+    _createdAt: new Date(),
     views: 0,
     author: "Pythagore",
     _id: 2,

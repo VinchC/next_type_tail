@@ -1,6 +1,7 @@
 import ExerciseCard from "@/components/ExerciseCard";
 import SearchForm from "../../components/SearchForm";
 import { exercises } from "../data";
+import { ExerciseType } from "../types";
 
 export default async function Home({
   searchParams,
@@ -16,16 +17,22 @@ export default async function Home({
         <p className="sub-heading !max-w-3xl">Tu es au bon endroit !</p>
         <SearchForm query={queryB} />
       </section>
-      <section className="">
-        <p>
+
+      <section className="section_container">
+        <p className="text-30-semibold">
           {queryB
             ? `Résultats de recherche pour ${queryB}`
             : "Tous les résultats"}
         </p>
-        <ul>
-          {exercises.map((exercise, index) => (
-            <ExerciseCard key={index} exercise={exercise} />
-          ))}
+
+        <ul className="mt-7 card-grid">
+          {exercises?.length > 0 ? (
+            exercises.map((exercise: ExerciseType) => (
+              <ExerciseCard key={exercise?._id} exercise={exercise} />
+            ))
+          ) : (
+            <p className="text-30-semibold">Aucun résultat</p>
+          )}
         </ul>
       </section>
     </>
