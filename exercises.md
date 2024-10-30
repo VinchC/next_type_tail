@@ -8,3 +8,7 @@ From commit 29e18d7cefab296bb26c0772bc7aadaa0bb81134 :
 
 From commit e762743f4d4e5d8c1d65f2ffd0cf87bdcc0ba872 :
  - create a FormatDate function to locale FR
+ - modify next config to allow images from external websites, including svg
+
+ From commit 3ad96147d590d58f51c01c644d485037ced592b3 :
+ - links to exercise page and query current category
