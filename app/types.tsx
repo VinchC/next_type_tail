@@ -1,7 +1,7 @@
 export type ExerciseType = {
   _createdAt: string;
   views: number;
-  author: string;
+  author: { _id: number; name: string };
   _id: number;
   description: string;
   picture: string;
