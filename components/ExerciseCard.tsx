@@ -3,12 +3,13 @@ import Image from "next/image";
 import { formatDate } from "@/lib/utils";
 import { EyeIcon } from "lucide-react";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 export default function ExerciseCard({ exercise }: { exercise: ExerciseType }) {
   const {
     _createdAt,
     views,
-    author: { _id: authorId, name },
+    author: { _id: authorId, name, portrait },
     _id,
     description,
     picture,
@@ -36,19 +37,37 @@ export default function ExerciseCard({ exercise }: { exercise: ExerciseType }) {
           </Link>
         </div>
         <Link href={`/user/${authorId}`}>
-          <Image
+          {/* <Image
             src="https://placehold.co/48x48"
             alt={name}
             width={48}
             height={48}
             className="rounded-full"
+          /> */}
+          <Image
+            src={portrait}
+            alt={`Portrait of ${name}`}
+            width={48}
+            height={48}
           />
         </Link>
       </div>
 
-      <Image src={picture} alt={title} width={64} height={64} />
-      <p>{description}</p>
-      <p>{category}</p>
+      <Link href={`/exercise/${_id}`}>
+        <p className="exercise-card_desc">{description}</p>
+        <div className="flex justify-center max-h-[192px]">
+          <Image src={picture} alt={title} width={128} height={128} />
+        </div>
+      </Link>
+
+      <div className="flex-between gap-3 mt-5">
+        <Link href={`/?query=${category.toLowerCase()}`}>
+          <p className="text-16-medium">{category}</p>
+        </Link>
+        <Button className="exercise-card_btn" asChild>
+          <Link href={`/exercise/${_id}`}>Détails</Link>
+        </Button>
+      </div>
     </li>
   );
 }
