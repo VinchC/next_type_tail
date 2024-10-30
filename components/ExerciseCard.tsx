@@ -37,7 +37,7 @@ export default function ExerciseCard({ exercise }: { exercise: ExerciseType }) {
         </div>
         <Link href={`/user/${authorId}`}>
           <Image
-            src="https://placehold.co/600x400"
+            src="https://placehold.co/48x48"
             alt={name}
             width={48}
             height={48}
