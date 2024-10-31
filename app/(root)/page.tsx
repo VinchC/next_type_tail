@@ -1,7 +1,8 @@
 import ExerciseCard from "@/components/ExerciseCard";
 import SearchForm from "../../components/SearchForm";
-import { exercises } from "../data";
 import { ExerciseType } from "../types";
+import { client } from "@/sanity/lib/client";
+import { EXERCISES_QUERY } from "@/sanity/lib/queries";
 
 export default async function Home({
   searchParams,
@@ -9,6 +10,8 @@ export default async function Home({
   searchParams: Promise<{ query?: string }>;
 }) {
   const queryB = (await searchParams).query;
+
+  const exercises = await client.fetch(EXERCISES_QUERY);
 
   return (
     <>
