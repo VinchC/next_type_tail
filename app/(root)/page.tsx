@@ -10,7 +10,9 @@ export default async function Home({
 }) {
   const queryB = (await searchParams).query;
 
-  const { data: exercises } = await sanityFetch({ query: EXERCISES_QUERY });
+  const params = { search: queryB || null};
+
+  const { data: exercises } = await sanityFetch({ query: EXERCISES_QUERY, params });
 
   return (
     <>
