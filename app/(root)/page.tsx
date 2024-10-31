@@ -27,7 +27,7 @@ export default async function Home({
             : "Tous les résultats"}
         </p>
 
-        <ul className="mt-7 card-grid">
+        <ul className="mt-7 flex gap-4">
           {exercises?.length > 0 ? (
             exercises.map((exercise: ExerciseTypeCard) => (
               <ExerciseCard key={exercise?._id} exercise={exercise} />
