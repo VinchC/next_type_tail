@@ -1,7 +1,7 @@
 import ExerciseCard, { ExerciseTypeCard } from "@/components/ExerciseCard";
 import SearchForm from "../../components/SearchForm";
-import { client } from "@/sanity/lib/client";
 import { EXERCISES_QUERY } from "@/sanity/lib/queries";
+import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 
 export default async function Home({
   searchParams,
@@ -10,7 +10,7 @@ export default async function Home({
 }) {
   const queryB = (await searchParams).query;
 
-  const exercises = await client.fetch(EXERCISES_QUERY);
+  const { data: exercises } = await sanityFetch({ query: EXERCISES_QUERY });
 
   return (
     <>
@@ -37,6 +37,8 @@ export default async function Home({
           )}
         </ul>
       </section>
+
+      <SanityLive />
     </>
   );
 }
