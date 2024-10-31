@@ -219,3 +219,20 @@
 .w-md-editor-toolbar {
   padding: 10px !important;
 }
+
+/* --------------------Accessibility-------------------- */
+/* allows to "hide" the skip navigation link which is still accessible by any screen reader */
+.skip {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+/* displays the skip navigation link when it is focused */
+.skip:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
