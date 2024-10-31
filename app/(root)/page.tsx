@@ -1,6 +1,5 @@
-import ExerciseCard from "@/components/ExerciseCard";
+import ExerciseCard, { ExerciseTypeCard } from "@/components/ExerciseCard";
 import SearchForm from "../../components/SearchForm";
-import { ExerciseType } from "../types";
 import { client } from "@/sanity/lib/client";
 import { EXERCISES_QUERY } from "@/sanity/lib/queries";
 
@@ -30,7 +29,7 @@ export default async function Home({
 
         <ul className="mt-7 card-grid">
           {exercises?.length > 0 ? (
-            exercises.map((exercise: ExerciseType) => (
+            exercises.map((exercise: ExerciseTypeCard) => (
               <ExerciseCard key={exercise?._id} exercise={exercise} />
             ))
           ) : (

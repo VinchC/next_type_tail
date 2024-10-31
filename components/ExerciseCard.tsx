@@ -1,15 +1,17 @@
-import { ExerciseType } from "@/app/types";
 import Image from "next/image";
 import { formatDate } from "@/lib/utils";
 import { EyeIcon } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { Author, Exercise } from "@/sanity/types";
 
-export default function ExerciseCard({ exercise }: { exercise: ExerciseType }) {
+export type ExerciseTypeCard = Omit<Exercise, "author"> & { author?: Author };
+
+const ExerciseCard = ({ exercise }: { exercise: ExerciseTypeCard }) => {
   const {
     _createdAt,
     views,
-    author: { _id: authorId, name, portrait },
+    author,
     _id,
     description,
     picture,
@@ -29,27 +31,20 @@ export default function ExerciseCard({ exercise }: { exercise: ExerciseType }) {
 
       <div className="flex-between mt-5 gap-5">
         <div className="flex-1">
-          <Link href={`/user/${authorId}`}>
-            <p className="text-16-medium line-clamp-1">{name}</p>
+          <Link href={`/user/${author?._id}`}>
+            <p className="text-16-medium line-clamp-1">{author?.name}</p>
           </Link>
           <Link href={`/exercise/${_id}`}>
             <h3 className="text-26-semibold line-clamp-1">{title}</h3>
           </Link>
         </div>
-        <Link href={`/user/${authorId}`}>
+        <Link href={`/user/${author?._id}`}>
           {/* <Image
-            src="https://placehold.co/48x48"
-            alt={name}
+            src={author?.portrait}
+            alt={`Portrait of ${author?.name}`}
             width={48}
             height={48}
-            className="rounded-full"
           /> */}
-          <Image
-            src={portrait}
-            alt={`Portrait of ${name}`}
-            width={48}
-            height={48}
-          />
         </Link>
       </div>
 
@@ -61,7 +56,7 @@ export default function ExerciseCard({ exercise }: { exercise: ExerciseType }) {
       </Link>
 
       <div className="flex-between gap-3 mt-5">
-        <Link href={`/?query=${category.toLowerCase()}`}>
+        <Link href={`/?query=${category?.toLowerCase()}`}>
           <p className="text-16-medium">{category}</p>
         </Link>
         <Button className="exercise-card_btn" asChild>
@@ -70,4 +65,6 @@ export default function ExerciseCard({ exercise }: { exercise: ExerciseType }) {
       </div>
     </li>
   );
-}
+};
+
+export default ExerciseCard;
