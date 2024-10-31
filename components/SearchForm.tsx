@@ -7,7 +7,8 @@ const SearchForm = ({ query }: { query?: string }) => {
     <>
       <Form action="/" scroll={false} className="search-form">
         <input
-          name="query"
+          aria-label="type search"
+          name="query"    
           defaultValue={query}
           className="search-input"
           placeholder={"Rechercher"}
@@ -15,7 +16,7 @@ const SearchForm = ({ query }: { query?: string }) => {
 
         <div className="flex gap-2">
           {query && <SearchFormReset />}
-          <button type="submit" className="search-btn text-white">
+          <button aria-label="send search" type="submit" className="search-btn text-white">
             <Search className="size-6" />
           </button>
         </div>

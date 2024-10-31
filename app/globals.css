@@ -11,6 +11,10 @@
 }
 
 @layer utilities {
+  .zoom {
+    @apply scale-300;
+  }
+
   .flex-between {
     @apply flex justify-between items-center;
   }

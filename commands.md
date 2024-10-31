@@ -9,3 +9,11 @@ npx sanity@latest typegen generate
 ## Ensure specific modules can only be used in server component to make the app more dynamic
 
 npm i server-only
+
+## Install Pa11y to check accessibility
+
+npm install -g pa11y
+
+pa11y http://localhost:3000/
+
+

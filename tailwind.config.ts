@@ -10,6 +10,9 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            scale: {
+                "300": "3",
+            },
             screens: {
                 xs: "475px",
             },

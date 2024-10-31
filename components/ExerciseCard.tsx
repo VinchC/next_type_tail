@@ -34,23 +34,25 @@ const ExerciseCard = ({ exercise }: { exercise: ExerciseTypeCard }) => {
           <Link href={`/user/${author?._id}`}>
             <p className="text-16-medium line-clamp-1">{author?.name}</p>
           </Link>
+
           <Link href={`/exercise/${_id}`}>
-            <h3 className="text-26-semibold line-clamp-1">{title}</h3>
+            <h2 className="text-26-semibold line-clamp-1">{title}</h2>
           </Link>
         </div>
-        <Link href={`/user/${author?._id}`}>
-          {/* <Image
+
+        {/* <Link href={`/user/${author?._id}`}>
+          <Image
             src={author?.portrait}
             alt={`Portrait of ${author?.name}`}
             width={48}
             height={48}
-          /> */}
-        </Link>
+          />
+        </Link> */}
       </div>
 
       <Link href={`/exercise/${_id}`}>
         <p className="exercise-card_desc">{description}</p>
-        <div className="flex justify-center max-h-[192px]">
+        <div className="flex justify-center items-center hover:zoom h-[128px] max-h-[128px]">
           <Image src={picture} alt={title} width={128} height={128} />
         </div>
       </Link>
