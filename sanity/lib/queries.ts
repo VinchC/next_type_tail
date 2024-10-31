@@ -1,4 +1,4 @@
-import { defineQuery } from "next/sanity";
+import { defineQuery } from "next-sanity";
 
 export const EXERCISES_QUERY = defineQuery(
   `*[_type == "exercise" && defined(slug.current)] | order(_createdAt desc) { 
