@@ -18,3 +18,7 @@ From commit 3ad96147d590d58f51c01c644d485037ced592b3 :
 From commit db92823e11fccb1efc4e9d894bac041397721ecd :
 
 - implement search via category, title and author name
+
+From commit 0dba36e4f98821f101e46b90a67823c4b4cf5dc2
+
+- cretae Exercise Page
