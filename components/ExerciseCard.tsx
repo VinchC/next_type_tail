@@ -52,7 +52,7 @@ const ExerciseCard = ({ exercise }: { exercise: ExerciseTypeCard }) => {
 
       <Link href={`/exercise/${_id}`}>
         <p className="exercise-card_desc">{description}</p>
-        <div className="flex justify-center items-center hover:zoom h-[128px] max-h-[128px]">
+        <div className="flex justify-center items-center h-[128px] max-h-[128px]">
           <Image src={picture} alt={title} width={128} height={128} />
         </div>
       </Link>
